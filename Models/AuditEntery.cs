@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity_Framework_Playground
+namespace Entity_Framework_Playground.Models
 {
-    public class Employee
+    public class AuditEntery
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public string? Username { get; set; }
+        public string? Action { get; set; }
     }
 }

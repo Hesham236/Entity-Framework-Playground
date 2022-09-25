@@ -14,9 +14,7 @@ namespace Entity_Framework_Playground
         static void Main(string[] args)
         {
             var _context = new ApplicationDbContext();
-            var employee = new Employee ();
 
-            _context.Employees.Add(employee);
 
             _context.SaveChanges();
         }

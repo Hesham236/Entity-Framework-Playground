@@ -4,6 +4,7 @@ using Entity_Framework_Playground;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Framework_Playground.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220925123852_AddColumnAddon")]
+    partial class AddColumnAddon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AuditEntery", (string)null);
+                    b.ToTable("AuditEntery");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Blog", b =>
@@ -58,7 +60,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Post", b =>
@@ -82,7 +84,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasIndex("BlogsId");
 
-                    b.ToTable("Post", (string)null);
+                    b.ToTable("Post");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Post", b =>
