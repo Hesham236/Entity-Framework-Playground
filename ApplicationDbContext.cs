@@ -54,12 +54,33 @@ namespace Entity_Framework_Playground
             //    eb.Property(b => b.Url).HasColumnType("varchar(200)");
             //});
 
+            ////make BookKey a PrimaryKey and change its name
+            //modelBuilder.Entity<Book>()
+            //    .HasKey(e => e.BookKey)
+            //    .HasName("PK_BookKey");
 
-                
+            //make composite key
+            modelBuilder.Entity<Book>()
+              .HasKey(e => new { e.Name, e.author });
+
+            //make default value
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.Rating)
+                .HasDefaultValue(2);
+
+            modelBuilder.Entity<Blog>()
+              .Property(e => e.Addedon)
+              .HasDefaultValueSql("GETDATE()");
+
+            modelBuilder.Entity<Author>()
+                .Property(e => e.DisplayName)
+                .HasComputedColumnSql("[FirstName] + ' ' + [LastName]");
 
         }
         //to make blog table domain
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
     }
 
 

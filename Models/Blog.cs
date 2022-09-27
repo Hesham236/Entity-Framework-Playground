@@ -20,10 +20,10 @@ namespace Entity_Framework_Playground.Models
         //execluded prop from table
         //[NotMapped]
         public DateTime? Addedon { get; set; }
-
+        //
+        public int Rating { get; set; }
         //execlude table from database 
         //[NotMapped]
-
         //make domain model in database 
         public List<Post> Posts { get; set; }
     }
