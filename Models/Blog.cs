@@ -16,15 +16,14 @@ namespace Entity_Framework_Playground.Models
 
         //change datatype
         //[Column(TypeName ="varchar(200)")]
+        [Required,MaxLength(200)]
         public string? Url { get; set; }
         //execluded prop from table
-        //[NotMapped]
+        [NotMapped]
         public DateTime? Addedon { get; set; }
-        //
+        [NotMapped]
         public int Rating { get; set; }
-        //execlude table from database 
-        //[NotMapped]
-        //make domain model in database 
-        public List<Post> Posts { get; set; }
+        public BlogImage? BlogImage { get; set; }
+        public List<Post>? Posts { get; set; }
     }
 }

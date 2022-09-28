@@ -4,6 +4,7 @@ using Entity_Framework_Playground;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Framework_Playground.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220928083812_AddTableCategory")]
+    partial class AddTableCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Auditenteries", (string)null);
+                    b.ToTable("Auditenteries");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Author", b =>
@@ -68,7 +70,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Blog", b =>
@@ -91,40 +93,11 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Blogs", (string)null);
-                });
-
-            modelBuilder.Entity("Entity_Framework_Playground.Models.BlogImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("BlogForeignKey")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("caption")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("BlogForeignKey")
-                        .IsUnique();
-
-                    b.ToTable("BlogImages", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Book", b =>
@@ -140,7 +113,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Name", "author");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Category", b =>
@@ -158,7 +131,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Post", b =>
@@ -182,24 +155,13 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasIndex("BlogsId");
 
-                    b.ToTable("Posts", (string)null);
-                });
-
-            modelBuilder.Entity("Entity_Framework_Playground.Models.BlogImage", b =>
-                {
-                    b.HasOne("Entity_Framework_Playground.Models.Blog", "Blog")
-                        .WithOne("BlogImage")
-                        .HasForeignKey("Entity_Framework_Playground.Models.BlogImage", "BlogForeignKey")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
+                    b.ToTable("Post");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Post", b =>
                 {
                     b.HasOne("Entity_Framework_Playground.Models.Blog", "Blogs")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("BlogsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -209,8 +171,7 @@ namespace Entity_Framework_Playground.Migrations
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Blog", b =>
                 {
-                    b.Navigation("BlogImage")
-                        .IsRequired();
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }

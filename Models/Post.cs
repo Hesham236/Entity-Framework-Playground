@@ -17,8 +17,7 @@ namespace Entity_Framework_Playground.Models
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? Content { get; set; }
-
-
+        
         //Navigation Property to blog table from posts table making blog a domain and post a child
         public Blog Blogs { get; set; }
     }

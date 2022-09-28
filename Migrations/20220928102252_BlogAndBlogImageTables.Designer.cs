@@ -4,6 +4,7 @@ using Entity_Framework_Playground;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Framework_Playground.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220928102252_BlogAndBlogImageTables")]
+    partial class BlogAndBlogImageTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Auditenteries", (string)null);
+                    b.ToTable("Auditenteries");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Author", b =>
@@ -68,7 +70,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Blog", b =>
@@ -96,7 +98,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.BlogImage", b =>
@@ -124,7 +126,7 @@ namespace Entity_Framework_Playground.Migrations
                     b.HasIndex("BlogForeignKey")
                         .IsUnique();
 
-                    b.ToTable("BlogImages", (string)null);
+                    b.ToTable("BlogImages");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Book", b =>
@@ -140,7 +142,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Name", "author");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Category", b =>
@@ -158,7 +160,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.Post", b =>
@@ -182,7 +184,7 @@ namespace Entity_Framework_Playground.Migrations
 
                     b.HasIndex("BlogsId");
 
-                    b.ToTable("Posts", (string)null);
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.BlogImage", b =>

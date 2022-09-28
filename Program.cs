@@ -16,17 +16,16 @@ namespace Entity_Framework_Playground
         {
             var _context = new ApplicationDbContext();
 
-            var author = _context.Authors.Find(1);
+            //var author = _context.Authors.Find(1);
+            //author.LastName = "Ali";
 
-            author.LastName = "Ali";
+            var category = new Category
+            {
+                Name = "AHMEDD",
+            };
+            _context.Categories.Add(category);
 
-            //var author = new Author 
-            //{
-            //   FirstName = "Ahmed",
-            //   LastName = "Ibrahim"
-            //};
 
-            //_context.Authors.Add(author);
             _context.SaveChanges();
         }
     }
