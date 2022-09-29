@@ -52,9 +52,15 @@ namespace Entity_Framework_Playground.Configurations
                 .HasOne(b => b.BlogImage)
                 .WithOne(i => i.Blog)
                 .HasForeignKey<BlogImage>(b => b.BlogForeignKey);
+            //builder
+            //    .HasMany(h => h.Posts)
+            //    .WithOne();
+
             builder
-                .HasMany(b => b.Posts)
-                .WithOne();
+                .HasIndex(b => b.Url);
+
+            builder
+                .HasData(new Blog { Id = 1, Url = "www.google.com" });
         }
     }
 }

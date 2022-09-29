@@ -4,6 +4,7 @@ using Entity_Framework_Playground;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entity_Framework_Playground.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220928215743_CompositeIndexForPersonTable")]
+    partial class CompositeIndexForPersonTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,14 +101,6 @@ namespace Entity_Framework_Playground.Migrations
                     b.HasIndex("Url");
 
                     b.ToTable("Blogs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Rating = 0,
-                            Url = "www.google.com"
-                        });
                 });
 
             modelBuilder.Entity("Entity_Framework_Playground.Models.BlogImage", b =>

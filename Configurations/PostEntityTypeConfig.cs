@@ -23,6 +23,28 @@ namespace Entity_Framework_Playground.Configurations
 
             //to ignore creating a table even if you make it a domain model:
             //modelBuilder.Ignore<Post>();
+
+
+
+            //ManyToMany Relation between Tags And Posts
+            builder
+                .HasMany(p => p.Tags)
+                .WithMany(t => t.Posts)
+                .UsingEntity<PostTag>(
+                    j => j
+                        .HasOne(t => t.Tag)
+                        .WithMany(t => t.PostTagss)
+                        .HasForeignKey(pt => pt.TagId),
+                    j => j
+                        .HasOne(pt => pt.Post)
+                        .WithMany(t => t.PostTagss)
+                        .HasForeignKey(pt => pt.PostId),
+                    j =>
+                    {
+                        j.Property(pt => pt.AddedOn).HasDefaultValueSql("GETDATE()");
+                        j.HasKey(pt => new { pt.PostId, pt.TagId } );
+                    }
+                ); 
         }
     }
 }

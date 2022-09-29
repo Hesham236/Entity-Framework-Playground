@@ -19,11 +19,11 @@ namespace Entity_Framework_Playground.Models
         [Required,MaxLength(200)]
         public string? Url { get; set; }
         //execluded prop from table
-        [NotMapped]
+        //[NotMapped]
         public DateTime? Addedon { get; set; }
-        [NotMapped]
+        //[NotMapped]
         public int Rating { get; set; }
         public BlogImage? BlogImage { get; set; }
-        public List<Post>? Posts { get; set; }
+       // public List<Post> Posts { get; set; }
     }
 }
