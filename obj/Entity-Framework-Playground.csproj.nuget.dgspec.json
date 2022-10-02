@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codes\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj": {}
+    "D:\\Hesham\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj": {}
   },
   "projects": {
-    "D:\\Codes\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj": {
+    "D:\\Hesham\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codes\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj",
+        "projectUniqueName": "D:\\Hesham\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj",
         "projectName": "Entity-Framework-Playground",
-        "projectPath": "D:\\Codes\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj",
-        "packagesPath": "C:\\Users\\Hesham\\.nuget\\packages\\",
-        "outputPath": "D:\\Codes\\Entity-Framework-Playground\\obj\\",
+        "projectPath": "D:\\Hesham\\Entity-Framework-Playground\\Entity-Framework-Playground.csproj",
+        "packagesPath": "C:\\Users\\Pro 2\\.nuget\\packages\\",
+        "outputPath": "D:\\Hesham\\Entity-Framework-Playground\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hesham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pro 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -70,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

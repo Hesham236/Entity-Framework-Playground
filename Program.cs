@@ -18,14 +18,21 @@ namespace Entity_Framework_Playground
 
             //var author = _context.Authors.Find(1);
             //author.LastName = "Ali";
-
             //var category = new Category
             //{
             //    Name = "AHMEDD",
             //};
             //_context.Categories.Add(category);
+            //SeedData();
 
-            SeedData();
+            //var stocks = _context.Stocks.ToList();
+
+            //foreach(var stock in stocks)
+            //    Console.WriteLine(stock.stock_name);
+
+            var stock = _context.Stocks.Find(100);
+            Console.WriteLine($"ID: {stock.id} : {stock.stock_name}");
+
             _context.SaveChanges();
         }
 

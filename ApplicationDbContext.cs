@@ -8,8 +8,8 @@ namespace Entity_Framework_Playground
     public class ApplicationDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
-            options.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = EFCore; Integrated Security = True"); //HomeDatabase:
-            //options.UseSqlServer(@"Data Source = (localdb)\ProjectModels; Initial Catalog = EFCore; Integrated Security = True"); //GehazDatabase
+            //options.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = EFCore; Integrated Security = True"); //HomeDatabase:
+            options.UseSqlServer(@"Data Source = (localdb)\ProjectModels; Initial Catalog = EFCore; Integrated Security = True"); //GehazDatabase
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //call the model that make you configure properties
@@ -30,6 +30,7 @@ namespace Entity_Framework_Playground
         public DbSet<Post>? Posts { get; set; }
         public DbSet<BlogImage>? BlogImages { get; set; }
         public DbSet<Person>? Persons { get; set; }
+        public DbSet<Stocks>? Stocks { get; set; }
     }
     //Three ways to add domain model
     //1-public DbSet<Blog> Blogs { get; set; } ----> gowa el DbContext as a public
