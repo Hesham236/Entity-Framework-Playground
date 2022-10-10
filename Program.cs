@@ -30,9 +30,16 @@ namespace Entity_Framework_Playground
             //foreach(var stock in stocks)
             //    Console.WriteLine(stock.stock_name);
 
-            var stock = _context.Stocks.Find(100);
-            Console.WriteLine($"ID: {stock.id} : {stock.stock_name}");
+            //var stock = _context.Stocks.Find(100);
+            //Console.WriteLine($"ID: {stock.id} : {stock.stock_name}");
 
+            //var stock = _context.Stocks.FirstOrDefault(m => m.id > 100); //to select first element with id bigger than 100 if not found then return default wich is no item found
+            //Console.WriteLine(stock == null ? "No Items Found" : $"ID :{stock.id} {stock.stock_name}");
+
+            //var stock = _context.Stocks.OrderBy(m => m.id).Last(); 
+            //Console.WriteLine(stock == null ? "No Items Found" : $"ID :{stock.id} {stock.stock_name}");
+
+            
             _context.SaveChanges();
         }
 
